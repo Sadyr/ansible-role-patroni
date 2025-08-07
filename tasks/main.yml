@@ -1,2 +1,6 @@
 ---
-# tasks file for patroni
+#- name: Check required parameters
+- import_tasks: setup.yml
+#- import_tasks: watchdog.yml
+#  when:
+#- import_tasks: configure.yml

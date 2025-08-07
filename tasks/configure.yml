@@ -1,0 +1,5 @@
+---
+- name: Create patroni dirs
+- name: Manage certificates
+- name: Deploy config file
+

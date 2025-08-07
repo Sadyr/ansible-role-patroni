@@ -1,0 +1,20 @@
+---
+- name: Add Repository GPG key
+  ansible.builtin.rpm_key:
+    state: present
+    key: "{{ patroni_repo_gpgkey }}"
+
+- name: Add Patroni repositories
+  ansible.builtin.yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    enabled: true
+    gpgcheck: true
+    baseurl: "{{ item.baseurl }}"
+  loop: "{{ patroni_repo_list }}"
+
+- name: Install required packages
+  ansible.builtin.dnf:
+    name: "{{ patroni_packages }}"
+    state: present
+   

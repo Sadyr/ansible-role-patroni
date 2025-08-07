@@ -1,0 +1,5 @@
+---
+- name: Activate softdog
+- name:  Change owner of /dev/watchdog
+- name: set content and permissions for /dev/watchdog
+- name: configure_watchdog | Reboot and verify /dev/watchdog permissions
