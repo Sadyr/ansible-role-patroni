@@ -1,10 +1,11 @@
 ---
-patroni_repo_url: https://download.postgresql.org/pub/repos/yum
-patroni_repo_gpgkey: "{{ patroni_repo_url }}/keys/PGDG-RPM-GPG-KEY-RHEL"
+patroni_package_mirror: https://download.postgresql.org/pub/repos/yum
+patroni_package_gpgkeys:
+- "{{ patroni_package_mirror }}/keys/PGDG-RPM-GPG-KEY-RHEL"
 patroni_repo_list:
 - name: postgresql-common
   description: "Postgresql common RPMs for RHEL"
-  baseurl: "{{ patroni_repo_url }}/common/redhat/rhel-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}"
+  baseurl: "{{ patroni_package_mirror }}/common/redhat/rhel-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}"
 
 patroni_configure_watchdog: false
 patroni_service_user: postgres
